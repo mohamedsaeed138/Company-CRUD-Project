@@ -1,5 +1,16 @@
 <h1 align="center">Company - MVC CRUD Project</h1>
 
+<p align="center"> 
+  <a href="https://github.com/mohamedsaeed138/Company-CRUD-Project/stargazers"><img src="https://img.shields.io/github/stars/mohamedsaeed138/Company-CRUD-Project" alt="Stars Badge"/></a>
+<a href="https://github.com/mohamedsaeed138/Company-CRUD-Project/network/members"><img src="https://img.shields.io/github/forks/mohamedsaeed138/Company-CRUD-Project" alt="Forks Badge"/></a>
+<a href="https://github.com/mohamedsaeed138/Company-CRUD-Project/network/members"><img src="https://img.shields.io/github/last-commit/mohamedsaeed138/Company-CRUD-Project
+" alt="Forks Badge"/></a>
+<a href="https://github.com/mohamedsaeed138/Company-CRUD-Project/pulls"><img src="https://img.shields.io/github/issues-pr/mohamedsaeed138/Company-CRUD-Project" alt="Pull Requests Badge"/></a>
+<a href="https://github.com/mohamedsaeed138/Company-CRUD-Project/issues"><img src="https://img.shields.io/github/issues/mohamedsaeed138/Company-CRUD-Project" alt="Issues Badge"/></a>
+<a href="https://github.com/mohamedsaeed138/Company-CRUD-Project/graphs/contributors"><img alt="GitHub contributors" src="https://img.shields.io/github/contributors/mohamedsaeed138/Company-CRUD-Project?color=2b9348"></a>
+<a href="https://github.com/mohamedsaeed138/Company-CRUD-Project/blob/main/LICENSE"><img src="https://img.shields.io/github/license/mohamedsaeed138/Company-CRUD-Project?color=2b9348" alt="License Badge"/></a>
+</p>
+
 ## Description
 
 Company is my first MVC web project developed as a CRUD application for practicing ASP.NET Core 8, EF Core, and Microsoft SQL Server skills acquired during an internship at The ITI (Institute in Egypt).
