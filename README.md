@@ -3,8 +3,7 @@
 <p align="center"> 
   <a href="https://github.com/mohamedsaeed138/Company-CRUD-Project/stargazers"><img src="https://img.shields.io/github/stars/mohamedsaeed138/Company-CRUD-Project" alt="Stars Badge"/></a>
 <a href="https://github.com/mohamedsaeed138/Company-CRUD-Project/network/members"><img src="https://img.shields.io/github/forks/mohamedsaeed138/Company-CRUD-Project" alt="Forks Badge"/></a>
-<a href="https://github.com/mohamedsaeed138/Company-CRUD-Project/network/members"><img src="https://img.shields.io/github/last-commit/mohamedsaeed138/Company-CRUD-Project
-" alt="Forks Badge"/></a>
+<a href="https://github.com/mohamedsaeed138/Company-CRUD-Project/network/members"><img src="https://img.shields.io/github/last-commit/mohamedsaeed138/Company-CRUD-Project" alt="Last Commit"/></a>
 <a href="https://github.com/mohamedsaeed138/Company-CRUD-Project/pulls"><img src="https://img.shields.io/github/issues-pr/mohamedsaeed138/Company-CRUD-Project" alt="Pull Requests Badge"/></a>
 <a href="https://github.com/mohamedsaeed138/Company-CRUD-Project/issues"><img src="https://img.shields.io/github/issues/mohamedsaeed138/Company-CRUD-Project" alt="Issues Badge"/></a>
 <a href="https://github.com/mohamedsaeed138/Company-CRUD-Project/graphs/contributors"><img alt="GitHub contributors" src="https://img.shields.io/github/contributors/mohamedsaeed138/Company-CRUD-Project?color=2b9348"></a>
