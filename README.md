@@ -38,6 +38,8 @@ CRUD operations for Employees, Departments, Department Locations, Projects, and 
 
 ## Technologies/Frameworks Used
 
+- Bootstrap
+- JQUERY
 - ASP.NET Core 8
 - LINQ
 - EF Core
