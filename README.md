@@ -1,4 +1,4 @@
-# Company - MVC CRUD Project
+<h1 align="center">Company - MVC CRUD Project</h1>
 
 ## Description
 
