@@ -57,9 +57,9 @@ CRUD operations for Employees, Departments, Department Locations, Projects, and 
 
 ## Screenshots
 
-![Create Department](https://github.com/mohamedsaeed138/Company-CRUD-Project/blob/master/Screenshots/Create%20Department.png?raw=true)
-![Departments](https://github.com/mohamedsaeed138/Company-CRUD-Project/blob/master/Screenshots/Departmen.png?raw=true)
-![Departments Locations](https://github.com/mohamedsaeed138/Company-CRUD-Project/blob/master/Screenshots/Departmens%20Locations.png?raw=true)
+- Create Department ![Create Department](https://github.com/mohamedsaeed138/Company-CRUD-Project/blob/master/Screenshots/Create%20Department.png?raw=true)
+- Departments ![Departments](https://github.com/mohamedsaeed138/Company-CRUD-Project/blob/master/Screenshots/Departmen.png?raw=true)
+- Departments Locations ![Departments Locations](https://github.com/mohamedsaeed138/Company-CRUD-Project/blob/master/Screenshots/Departmens%20Locations.png?raw=true)
 
 ## License
 
