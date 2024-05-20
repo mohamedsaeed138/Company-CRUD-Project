@@ -53,4 +53,4 @@ CRUD operations for Employees, Departments, Department Locations, Projects, and 
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/mohamedsaeed138/Company-CRUD-Project/blob/master/LICENSE.txt) file for details.
