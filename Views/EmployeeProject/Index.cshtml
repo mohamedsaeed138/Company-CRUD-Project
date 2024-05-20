@@ -1,0 +1,38 @@
+﻿@model List<EmployeeProject>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-center">Employees Projects</h1>
+<h5 class="text-center" style="font-family: Arial !important;color:rgba(0,0,0,.76)">@ViewBag.GroupTitle</h5>
+<a class="btn btn-success float-end" asp-controller="EmployeeProject" asp-action="Create"> Create</a>
+
+<br />
+<br />
+<table class="table   table-hover text-center">
+    <thead style="color:white;background-color:#332ca9;">
+        <tr>
+            <th>Employee SSN</th>
+            <th>Project Number</th>
+            <th>Employee</th>
+            <th>Project</th>
+            <th>Working Hours</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+
+    @foreach (var item in Model)
+    { 
+        <tr class="table-light">
+            <td>@item.ESSN</td>
+            <td>@item.PNo</td>
+            <td><a class="link" href="/Employee/Index#@item.ESSN">@string.Join(" ",item.Employee?.FName,item.Employee?.MName,item.Employee?.LName)</a></td>
+            <td><a class="link" href="/Project/Index#@item.PNo">@item.Project?.Name</a></td>
+            <td>@item.Hours</td>
+            <td>@Html.ActionLink("Update","Update","EmployeeProject",new {essn=item.ESSN,pNo=item.PNo},new {@class="btn btn-primary"})</td>
+            <td>@Html.ActionLink("Delete","Delete","EmployeeProject",new {essn=item.ESSN,pNo=item.PNo},new {@class="btn btn-danger"})</td>
+        </tr>
+    }
+</table>
+

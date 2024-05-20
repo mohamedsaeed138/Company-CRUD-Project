@@ -1,0 +1,39 @@
+﻿@using Microsoft.AspNetCore.Routing;
+@model Project
+@{
+    ViewData["Title"] = ViewBag.Link;
+}
+
+<form method="post" asp-action="@ViewBag.Link" asp-controller="Project">
+    <span class="text-danger">@TempData["HtmlViolation"]</span>
+    <div class="form-group">
+        <label asp-for="Number"></label>
+        <input asp-for="Number" class="form-control" value="@(ViewData["Title"]=="Create"?"":Model?.Number)" readonly disabled="@(ViewData["Title"]=="Create"?true:false)" />
+        <span asp-validation-for="Number" class="text-danger">@TempData["SqlException"]</span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" value="@Model?.Name" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+
+    </div>
+    <div class="form-group">
+        <label asp-for="Location"></label>
+        <input asp-for="Location" class="form-control" value="@Model?.Location" />
+        <span asp-validation-for="Location" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="DNum"></label>
+        <select asp-for="DNum" class="form-control form-select">
+            <option value="@null" selected>None</option>
+            @foreach (Department dept in ViewBag.Departments)
+            {
+                <option value="@dept.Number" selected="@(Model?.DNum == dept.Number?true:false)">@string.Join(" ","Number:",dept.Number,',',"Name:",dept.Name)</option>
+            }
+        </select>
+        </div>
+    <br />
+
+    <input type="submit" value="@ViewBag.Link" class="btn btn-primary" />
+    <a asp-action="Index" asp-controller="Project" class="btn" style="background-color:#a411c0 !important;color:white !important;">Back To List</a>
+</form>

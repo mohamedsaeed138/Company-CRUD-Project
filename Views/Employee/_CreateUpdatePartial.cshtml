@@ -1,0 +1,88 @@
+﻿@using Microsoft.AspNetCore.Routing;
+@model Employee
+@{
+    ViewData["Title"] = ViewBag.Link;
+}
+
+<form method="post" asp-action="@ViewBag.Link" asp-controller="Employee"  >
+    <span class="text-danger">@TempData["HtmlViolation"]</span>
+    <div class="form-group">
+       
+       <label asp-for="SSN"></label>
+       <input asp-for="SSN" class="form-control" value="@Model?.SSN" readonly=@(ViewData["Title"]=="Update"?true:false) />
+       <span asp-validation-for="SSN" class="text-danger"></span>
+       <span  class="text-danger">@TempData["SqlException"]</span>
+      
+
+    </div>
+    <div class="form-group">
+        <label asp-for="FName"></label>
+        <input asp-for="FName" class="form-control" value="@Model?.FName" />
+        <span asp-validation-for="FName" class="text-danger"></span>
+
+    </div>
+    <div class="form-group">
+        <label asp-for="MName"></label>
+        <input asp-for="MName" class="form-control" value="@Model?.MName" />
+        <span asp-validation-for="MName" class="text-danger"></span>
+
+    </div>
+    <div class="form-group">
+        <label asp-for="LName"></label>
+        <input asp-for="LName" class="form-control" value="@Model?.LName" />
+        <span asp-validation-for="LName" class="text-danger"></span>
+
+    </div>
+    <div class="form-group">
+        <label asp-for="Sex"></label>
+        <select asp-for="Sex" class="form-control form-select">
+            <option value="m" selected="@(Model?.Sex=='m'?true:false)">Male</option>
+            <option value="f" selected="@(Model?.Sex=='f'?true:false)" >Female</option>
+        </select>
+        <span asp-validation-for="Sex" class="text-danger"></span>
+
+    </div>
+    <div class="form-group">
+        <label asp-for="BDate"></label>
+        <input asp-for="BDate" class="form-control" type="date" value="@Model?.BDate?.ToString("yyyy-MM-dd")" />
+        <span asp-validation-for="BDate" class="text-danger" ></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Salary"></label>
+        <input asp-for="Salary" type="number" class="form-control" value="@Model?.Salary" />
+        <span asp-validation-for="Salary" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Address"></label>
+        <input asp-for="Address" class="form-control" value="@Model?.Address" />
+        <span asp-validation-for="Address" class="text-danger"></span>
+
+    </div>
+    <div class="form-group">
+        <label asp-for="DNo"></label>
+        <select asp-for="DNo" class="form-control form-select">
+            <option value="@null" selected>None</option>
+            @foreach (Department dept in ViewBag.Departments)
+            {
+                <option value="@dept.Number" selected="@(Model?.DNo == dept.Number?true:false)">@string.Join(" ","Number:",dept.Number,',',"Name:",dept.Name)</option>
+            }
+        </select>
+
+    </div>
+   
+    <div class="form-group">
+        <label asp-for="SupervisorSSN"></label>
+        <select asp-for="SupervisorSSN" class="form-control form-select">
+            <option value="@null" selected>None</option>
+            @foreach (Employee emp in ViewBag.Supervisors)
+            {
+                <option value="@emp.SSN" selected="@(Model?.SupervisorSSN == emp.SSN?true:false)">@string.Join(" ","SSN:",emp.SSN,',',"Name:",emp.FName,emp.MName,emp.LName)</option>
+            }
+        </select>
+
+    </div>
+    <br />
+
+    <input type="submit" value="@ViewBag.Link" class="btn btn-primary" />
+    <a asp-action="Index" asp-controller="Employee" class="btn" style="background-color:#a411c0 !important;color:white !important;">Back To List</a>
+</form>

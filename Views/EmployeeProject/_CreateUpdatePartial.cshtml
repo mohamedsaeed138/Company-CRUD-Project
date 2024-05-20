@@ -1,0 +1,40 @@
+﻿@using Microsoft.AspNetCore.Routing;
+@model EmployeeProject
+@{
+    ViewData["Title"] = ViewBag.Link;
+}
+
+<form method="post" asp-action="@ViewBag.Link" asp-controller="EmployeeProject">
+    <span class="text-danger">@TempData["HtmlViolation"]</span>
+    <span class="text-danger">@TempData["SqlException"]</span>
+    <div class="form-group">
+        <label asp-for="ESSN"></label>
+        <select asp-for="ESSN" class="form-control form-select" readonly=@(ViewData["Title"]=="Update"?true:false)>
+            @foreach (Employee emp in ViewBag.Employees)
+            {
+                <option value="@emp.SSN" selected="@(Model?.ESSN == emp.SSN?true:false)">@string.Join(" ","SSN:",emp.SSN,',',"Name:",emp.FName,emp.MName,emp.LName)</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="PNo"></label>
+        <select asp-for="PNo" class="form-control form-select" readonly=@(ViewData["Title"]=="Update"?true:false)>
+            @foreach (Project project in ViewBag.Projects)
+            {
+                <option value="@project.Number" selected="@(Model?.PNo == @project.Number?true:false)">@string.Join(" ","Number:",project.Number,',',"Name:",project.Name)</option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Hours"></label>
+        <input asp-for="Hours" class="form-control " value="@Model?.Hours" />
+        <span asp-validation-for="Hours" class="text-danger"></span>
+
+    </div>
+
+    <br />
+
+    <input type="submit" value="@ViewBag.Link" class="btn btn-primary" />
+    <a asp-action="Index" asp-controller="EmployeeProject" class="btn" style="background-color:#a411c0 !important;color:white !important;">Back To List</a>
+</form>

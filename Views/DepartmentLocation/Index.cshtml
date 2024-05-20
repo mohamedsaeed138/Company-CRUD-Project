@@ -1,0 +1,47 @@
+﻿@model List<DepartmentLocation>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-center">Departments Locations</h1>
+<form method="post" asp-action="Index" asp-controller="DepartmentLocation">
+    <div class="form-group">
+        <h3>Search</h3>
+        <input type="text" name="location" value="@TempData["Location"]" class="form-control" placeholder="Search By Location & Press enter" />
+
+    </div>
+
+</form>
+<br />
+<a class="btn btn-success float-end" asp-controller="DepartmentLocation" asp-action="Create"> Create</a>
+
+<br />
+<br />
+<table class="table   table-hover text-center">
+    <thead style="color:white;background-color:#332ca9;">
+        <tr>
+            <th>Department Number</th>
+            <th>Location</th>
+            <th>Department</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+
+    @foreach (var group in Model.GroupBy(x => x.DNumber))
+    {
+        <tbody id="@group.Key">
+            @foreach (var item in group)
+            {
+                <tr class="table-light" > 
+                    <td>@item.DNumber</td>
+                    <td>@item.Location</td>
+                    <td><a class="link" href="/Department/Index#@item.DNumber">@item.Department?.Name</a></td>
+                    <td>@Html.ActionLink("Delete","Delete","DepartmentLocation",new {dNumber=item.DNumber,location=item.Location},new {@class="btn btn-danger"})</td>
+                </tr>
+
+            }
+        </tbody>
+
+    }
+</table>
+

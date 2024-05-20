@@ -1,0 +1,41 @@
+﻿@using Company.Models;
+@using Microsoft.AspNetCore.Routing;
+@model DepartmentLocation
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 class="text-center">Create a new Department Location</h1>
+
+
+<form method="post" asp-action="Create" asp-controller="DepartmentLocation">
+    <span class="text-danger">@TempData["HtmlViolation"]</span>
+    <div class="form-group">
+        <label asp-for="DNumber"></label>
+        <select asp-for="DNumber" class="form-control form-select">
+            @foreach (Department dept in ViewBag.Departments)
+            {
+                <option value="@dept.Number" selected="@(Model?.DNumber == dept.Number?true:false)">@string.Join(" ","Number:",dept.Number,',',"Name:",dept.Name)</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="Location"></label>
+        <input asp-for="Location" class="form-control" value="@Model?.Location" />
+        <span asp-validation-for="Location" class="text-danger"></span>
+        <span class="text-danger">@TempData["SqlException"]</span>
+    </div>
+
+    <br />
+
+    <input type="submit" value="Create" class="btn btn-primary" />
+    <a asp-action="Index" asp-controller="DepartmentLocation" class="btn" style="background-color:#a411c0 !important;color:white !important;">Back To List</a>
+</form>
+
+
+@section Scripts{
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+}
+

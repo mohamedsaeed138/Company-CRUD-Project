@@ -1,0 +1,48 @@
+﻿@model List<Department>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-center">Department</h1>
+<br />
+<a class="btn btn-success float-sm-end" asp-controller="Department" asp-action="Create"> Create</a>
+
+<br />
+<br />
+<table class="table   table-hover text-center">
+    <thead style="color:white;background-color:#332ca9;">
+        <tr>
+            <th>Number</th>
+            <th>Name</th>
+            <th>Manager</th>
+            <th>Manager Start Date</th>
+            <th>Locations</th>
+            <th>Projects</th>
+            <th>Employees</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+
+    @foreach (var item in Model)
+    {
+        <tr class="table-light" id="@item.Number">
+            <td>@item.Number</td>
+            <td>@item.Name</td>
+            <td><a href="/Employee/Index#@item.ManagerSSN">@string.Join(separator:" ",item.Manager?.FName,item.Manager?.MName,item.Manager?.LName)</a></td>
+            <td>@item.MGRStartDate?.ToString("dd-MM-yyyy")</td>
+            <td>
+                <a href="/DepartmentLocation/Index#@item.Number">Locations</a>
+            </td>
+            <td>
+                @Html.ActionLink("Projects","Projects","Department",new {number=item.Number})
+            </td>
+            <td>
+                @Html.ActionLink("Employees","Employees","Department",new {number=item.Number})
+            </td>
+            <td>@Html.ActionLink("Update","Update","Department",new {number=item.Number},new {@class="btn btn-primary"})</td>
+            <td>@Html.ActionLink("Delete","Delete","Department",new {number=item.Number},new {@class="btn btn-danger"})</td>
+        </tr>
+    }
+</table>
+

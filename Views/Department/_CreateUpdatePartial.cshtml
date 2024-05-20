@@ -1,0 +1,48 @@
+﻿@using Microsoft.AspNetCore.Routing;
+@model Department
+@{
+    ViewData["Title"] = ViewBag.Link;
+}
+
+<form method="post" asp-action="@ViewBag.Link" asp-controller="Department">
+    <span class="text-danger">@TempData["HtmlViolation"]</span>
+    <div class="form-group">
+
+        <label asp-for="Number"></label>
+        <input asp-for="Number" class="form-control" value="@(ViewData["Title"]=="Create"?"":Model?.Number)" readonly disabled="@(ViewData["Title"]=="Create"?true:false)" />
+        <span asp-validation-for="Number" class="text-danger">@TempData["SqlException"]</span>
+
+    </div>
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" value="@Model?.Name" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+
+    </div>
+    <div class="form-group">
+        <label asp-for="ManagerSSN"></label>
+        <select asp-for="ManagerSSN" class="form-control form-select">
+            <option value="@null" selected>None</option>
+            @foreach (Employee emp in ViewBag.Managers)
+            {
+                <option value="@emp.SSN" selected="@(Model?.ManagerSSN == emp.SSN?true:false)">@string.Join(" ","SSN:",emp.SSN,',',"Name:",emp.FName,emp.MName,emp.LName)</option>
+            }
+        </select>
+
+    </div>
+    <div class="form-group">
+        <label asp-for="MGRStartDate"></label>
+        <input asp-for="MGRStartDate" class="form-control" type="date" value="@Model?.MGRStartDate?.ToString("yyyy-MM-dd")" />
+        <span asp-validation-for="MGRStartDate" class="text-danger"></span>
+        <span class="text-danger">@TempData["DependencyViolation"] </span>
+    </div>
+    <br />
+
+    <input type="submit" value="@ViewBag.Link" class="btn btn-primary" />
+    <a asp-action="Index" asp-controller="Department" class="btn" style="background-color:#a411c0 !important;color:white !important;">Back To List</a>
+</form>
+@section Scripts{
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+}

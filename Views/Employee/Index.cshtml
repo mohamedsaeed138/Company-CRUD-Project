@@ -1,0 +1,50 @@
+﻿@model List<Employee>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-center">Employees</h1>
+<h5 class="text-center" style="font-family: Arial !important;color:rgba(0,0,0,.76)">@ViewBag.GroupTitle</h5>
+<a class="btn btn-success float-end" asp-controller="Employee" asp-action="Create"> Create</a>
+inp
+<br />
+<br />
+<table class="table   table-hover text-center" >
+    <thead style="color:white;background-color:#332ca9;">
+        <tr >
+            <th>SSN</th>
+            <th>Full Name</th>
+            <th>Sex</th>
+            <th>Birth Date</th>
+            <th>Address</th>
+            <th>Salary</th>
+            <th>Department</th>
+            <th>Projects</th>
+            <th>Supervisor</th>
+            <th>Dependents</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+  
+    @foreach (var item in Model)
+    {
+        <tr class="table-light" id="@item.SSN">
+            <td>@item.SSN</td>
+            <td>@string.Join(separator:" ",item.FName,item.MName,item.LName)</td>
+            <td>@(item.Sex=='m'?"Male":"Female")</td>
+            <td>@item.BDate?.ToString("dd-MM-yyyy")</td>
+            <td>@item.Address</td>
+            <td>@item.Salary</td>
+            <td><a href="/Department/Index#@item.DNo">@item.Department?.Name</a></td>
+            <td>
+                @Html.ActionLink("Projects","Projects","Employee",new {ssn=item.SSN})
+            </td>
+            <td><a href="#@item.SupervisorSSN">@string.Join(separator:" ",item.Supervisor?.FName,item.Supervisor?.MName,item.Supervisor?.LName)</a></td>
+            <td><a href="/Dependent/Index#@item.SSN"> Dependents </a></td>
+            <td>@Html.ActionLink("Update","Update","Employee",new {ssn=item.SSN},new {@class="btn btn-primary"})</td>
+            <td>@Html.ActionLink("Delete","Delete","Employee",new {ssn=item.SSN},new {@class="btn btn-danger"})</td>
+        </tr>
+    }
+</table>
+

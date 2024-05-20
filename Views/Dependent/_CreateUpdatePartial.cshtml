@@ -1,0 +1,52 @@
+﻿@using Microsoft.AspNetCore.Routing;
+@model Dependent
+@{
+    ViewData["Title"] = ViewBag.Link;
+}
+
+<form method="post" asp-action="@ViewBag.Link" asp-controller="Dependent">
+        <span class="text-danger">@TempData["HtmlViolation"]</span>
+        <div class="form-group">
+            <label asp-for="ESSN"></label>
+        <select asp-for="ESSN" class="form-control form-select" readonly=@(ViewData["Title"]=="Update"?true:false)>
+                @foreach (Employee emp in ViewBag.Employees)
+                {
+                    <option value="@emp.SSN" selected="@(Model?.ESSN == emp.SSN?true:false)">@string.Join(" ","SSN:",emp.SSN,',',"Name:",emp.FName,emp.MName,emp.LName)</option>
+                }
+            </select>
+        </div>
+        <div class="form-group">
+            <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" value="@Model?.Name" readonly=@(ViewData["Title"]=="Update"?true:false) />
+                <span asp-validation-for="Name" class="text-danger"></span>
+                <span  class="text-danger">@TempData["SqlException"]</span>
+        </div>
+   
+    
+    <div class="form-group">
+        <label asp-for="Sex"></label>
+        <select asp-for="Sex" class="form-control form-select">
+            <option value="m" selected="@(Model?.Sex=='m'?true:false)">Male</option>
+            <option value="f" selected="@(Model?.Sex=='f'?true:false)">Female</option>
+        </select>
+        <span asp-validation-for="Sex" class="text-danger"></span>
+
+    </div>
+    <div class="form-group">
+        <label asp-for="BDate"></label>
+        <input asp-for="BDate" class="form-control datepicker"  type="date" value="@Model?.BDate.ToString("yyyy-MM-dd")"/>
+        <span asp-validation-for="BDate" class="text-danger"></span>
+    </div>
+   
+    <div class="form-group">
+        <label asp-for="Relationship"></label>
+        <input asp-for="Relationship" class="form-control" value="@Model?.Relationship" />
+        <span asp-validation-for="Relationship" class="text-danger"></span>
+
+    </div>
+   
+    <br />
+
+    <input type="submit" value="@ViewBag.Link" class="btn btn-primary" />
+    <a asp-action="Index" asp-controller="Dependent" class="btn" style="background-color:#a411c0 !important;color:white !important;">Back To List</a>
+</form>

@@ -1,0 +1,46 @@
+﻿@model List<Dependent>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-center">Dependents</h1>
+<a class="btn btn-success float-end" asp-controller="Dependent" asp-action="Create"> Create</a>
+
+<br />
+<br />
+<table class="table   table-hover text-center">
+    <thead style="color:white;background-color:#332ca9;">
+        <tr>
+            <th>Employee SSN</th>
+            <th>Name</th>
+            <th>Employee</th>
+            <th>Sex</th>
+            <th>Birth Date</th>
+            <th>Relationship</th>
+            <th>Update</th>
+            <th>Delete</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+
+    @foreach (var group in Model.GroupBy(x=>x.ESSN))
+    {   <tbody id="@group.Key">
+        @foreach (var item in group)
+            {
+                <tr class="table-light">
+                    <td>@item.ESSN</td>
+                    <td>@item.Name</td>
+                    <td><a class="link" href="/Employee/Index#@item.ESSN">@string.Join(" ",item.Employee?.FName,item.Employee?.MName,item.Employee?.LName)</a></td>
+                    <td>@(item.Sex == 'm' ? "Male" : "Female")</td>
+                    <td>@item.BDate.ToString("dd-MM-yyyy")</td>
+                    <td>@item.Relationship</td>
+                    <td>@Html.ActionLink("Update","Update","Dependent",new {ESSN=item.ESSN,Name=item.Name},new {@class="btn btn-primary"})</td>
+                    <td>@Html.ActionLink("Delete","Delete","Dependent",new {ESSN=item.ESSN,Name=item.Name},new {@class="btn btn-danger"})</td>
+                </tr>
+            
+        }
+        </tbody>
+        
+    }
+</table>
+
