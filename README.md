@@ -19,8 +19,6 @@ cd Company
 
 ### Set Up the Database
 
-- Update the connection string in appsettings.json.
-
 - Apply migrations to create the database schema.  
 
 ```sh
