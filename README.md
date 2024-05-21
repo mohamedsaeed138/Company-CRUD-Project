@@ -12,7 +12,7 @@
 
 ## Description
 
-Company is my first MVC web project developed as a CRUD application for practicing ASP.NET Core 8, EF Core, and Microsoft SQL Server skills acquired during an internship at The ITI (Institute in Egypt).
+Company is my first MVC web project developed as a CRUD application for practicing ASP.NET Core 8, EF Core, and Microsoft SQL Server skills acquired during a training at The ITI (Institute in Egypt).
 
 ## Installation Instructions
 
