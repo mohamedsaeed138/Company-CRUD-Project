@@ -1,6 +1,6 @@
 <h1 align="center">Company - MVC CRUD Project</h1>
 
-<p align="center"> 
+<p align="center">
   <a href="https://github.com/mohamedsaeed138/Company-CRUD-Project/stargazers"><img src="https://img.shields.io/github/stars/mohamedsaeed138/Company-CRUD-Project" alt="Stars Badge"/></a>
 <a href="https://github.com/mohamedsaeed138/Company-CRUD-Project/network/members"><img src="https://img.shields.io/github/forks/mohamedsaeed138/Company-CRUD-Project" alt="Forks Badge"/></a>
 <a href="https://github.com/mohamedsaeed138/Company-CRUD-Project/network/members"><img src="https://img.shields.io/github/last-commit/mohamedsaeed138/Company-CRUD-Project" alt="Last Commit"/></a>
@@ -17,6 +17,7 @@ Company is my first MVC web project developed as a CRUD application for practici
 ## Installation Instructions
 
 ### Prerequisites
+
 - .NET 8 SDK: Download and install the .NET 8 SDK from the [official website](https://dotnet.microsoft.com/download).
 - Microsoft SQL Server: Ensure you have Microsoft SQL Server installed and running. You can download it from the [official website](https://www.microsoft.com/en-us/sql-server/sql-server-downloads).
 
